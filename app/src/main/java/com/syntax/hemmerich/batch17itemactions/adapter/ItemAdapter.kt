@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.syntax.hemmerich.batch17itemactions.data.model.ItemDataClass
 import com.syntax.hemmerich.batch17itemactions.databinding.ListItemBinding
 
-class ItemAdapter(var dataSet: List<ItemDataClass>) :RecyclerView.Adapter<ItemAdapter.ItemViewHolder>(){
+class ItemAdapter(var dataSet: MutableList<ItemDataClass>) :RecyclerView.Adapter<ItemAdapter.ItemViewHolder>(){
 
     class ItemViewHolder(val binding: ListItemBinding):RecyclerView.ViewHolder(binding.root)
 
@@ -22,6 +22,10 @@ class ItemAdapter(var dataSet: List<ItemDataClass>) :RecyclerView.Adapter<ItemAd
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val data = dataSet[position]
         holder.binding.tvItem.text = data.title
+//        holder.binding.btnDelete.setOnClickListener {
+//            dataSet.removeAt(position)
+//            notifyItemRemoved(position)
+//        }
     }
 
 }

@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.rvItems.adapter = myAdapter
 
-        val itemTouchHelper = ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(ItemTouchHelper.UP or ItemTouchHelper.DOWN,ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT){
+        val itemTouchHelper = ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(ItemTouchHelper.UP or ItemTouchHelper.DOWN,0){
             override fun onMove(
                 recyclerView: RecyclerView,
                 source: RecyclerView.ViewHolder,
@@ -51,14 +51,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                var pos = viewHolder.adapterPosition
-                items.removeAt(pos)
-                myAdapter.notifyItemRemoved(pos)
-                if(direction == ItemTouchHelper.RIGHT){
-                    Toast.makeText(this@MainActivity,"Rechts",Toast.LENGTH_LONG).show()
-                }else{
-                    Toast.makeText(this@MainActivity,"Links",Toast.LENGTH_LONG).show()
-                }
+
             }
 
         })
